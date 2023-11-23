@@ -25,3 +25,9 @@
 - Utiliza `useCallback` para funciones que deben ser memorizadas para evitar renderizados innecesarios.
 
 Recuerda asegurarte de manejar los casos de carga, error y éxito de la llamada a la API. También puedes implementar la paginación para mostrar más resultados de películas. ¡Espero que este ejercicio te ayude a mejorar tus habilidades con React y el consumo de APIs!
+
+
+#### links
+<!-- parentecis () => cambios -->
+- para las imagenes => https://image.tmdb.org/t/p/w500/(7WsyChQLEftFiDOVTGkv3hFpyyt.jpg)
+- url de la api => https://api.themoviedb.org/3/search/movie?query=(avenger)&api_key=(ed7271bea97a2214a41a422fdcbbc872)
