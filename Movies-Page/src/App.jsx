@@ -1,15 +1,19 @@
+import { useContext, useState } from 'react'
 import './App.css'
 import { Movies } from './components/Movies'
 import { Search } from './components/Search'
+import { PagesContext } from './context/pages'
 
 export function App () {
-  // const [search, setSearch] = useState('avenger')
-  // useEffect(() => {
-  //   fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&api_key=ed7271bea97a2214a41a422fdcbbc872`)
-  //     .then(response => response.json())
-  //     .then(response => console.log(response))
-  //     .catch(err => console.error(err))
-  // }, [])
+  const { pages } = useContext(PagesContext)
+  const [page, setPage] = useState(2)
+  const [componentList, setComponentList] = useState([<Movies key={0} page={1} />])
+  // const numPage = useMemo(0)
+  const showMovies = () => {
+    setComponentList([...componentList, <Movies key={componentList.length} page={page} />])
+    setPage(page + 1)
+  }
+
   return (
     <main>
       <header>
@@ -21,7 +25,11 @@ export function App () {
       </header>
       <section className='container'>
         <h3>Resultado de la busqueda</h3>
-        <Movies />
+        <ul>
+
+          {componentList.length !== 0 && componentList.map(item => item)}
+        </ul>
+        {(pages > 0 && pages >= page) && <button onClick={showMovies}>Cargar mas </button>}
       </section>
     </main>
   )
