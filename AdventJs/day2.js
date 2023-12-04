@@ -1,17 +1,20 @@
 function manufacture (gifts, materials) {
   // Code here
   const arrGifts = [...gifts]
+  const arrMaterials = materials.split('')
+  const result = []
   arrGifts.forEach(gift => {
     const arrGift = gift.split('')
-    console.log(arrGift)
+    if (arrGift.every(item => arrMaterials.includes(item))) {
+      result.push(gift)
+    }
   })
-  return []
+  return result
 }
 
 const gifts = ['tren', 'oso', 'pelota']
 const materials = 'tronesa'
-
-manufacture(gifts, materials) // ["tren", "oso"]
+console.log(manufacture(gifts, materials)) // ["tren", "oso"]
 // 'tren' SÍ porque sus letras están en 'tronesa'
 // 'oso' SÍ porque sus letras están en 'tronesa'
 // 'pelota' NO porque sus letras NO están en 'tronesa'
@@ -19,9 +22,9 @@ manufacture(gifts, materials) // ["tren", "oso"]
 const gifts2 = ['juego', 'puzzle']
 const materials2 = 'jlepuz'
 
-manufacture(gifts2, materials2) // ["puzzle"]
+console.log(manufacture(gifts2, materials2)) // ["puzzle"]
 
 const gifts3 = ['libro', 'ps5']
 const materials3 = 'psli'
 
-manufacture(gifts3, materials3) // []
+console.log(manufacture(gifts3, materials3)) // []
