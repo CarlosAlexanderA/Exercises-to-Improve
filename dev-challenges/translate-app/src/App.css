@@ -1,0 +1,146 @@
+/* #BDC3C7
+#ECF0F1
+#34495E
+#2C3E50 */
+
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  display: grid;
+  place-content: center;
+}
+button {
+  border: none;
+}
+
+header {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+header .logo {
+  width: 2rem;
+}
+main {
+  width: 100%;
+  padding: 2rem 6rem;
+}
+main section.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+main .card-translate {
+  background-color: #34495e;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  border: 1px solid #bdc3c781;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 500px;
+}
+main .card-translate.response {
+  background-color: #22303d;
+}
+main .card-translate.response textarea {
+}
+/* #2C3E50 */
+.card-translate .head-translate {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.3rem 0.3rem 1rem 0.3rem;
+  gap: 1rem;
+  border-bottom: 1px solid #ffffff44;
+}
+
+.card-translate .btn-translate {
+  color: #888d8b;
+  background: transparent;
+  font-weight: 500;
+  padding: 0.3em 0.8em;
+  border-radius: 1em;
+}
+.card-translate .btn-translate.active {
+  color: #fff;
+  background-color: #ffffff44;
+}
+.card-translate select.btn-translate {
+  outline: none;
+  border: none;
+}
+textarea:focus-visible {
+  outline: none;
+}
+.card-translate .main-translate {
+  position: relative;
+}
+.card-translate .main-translate > p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #ffffff33;
+  font-size: 0.7rem;
+}
+.card-translate .main-translate > textarea {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  resize: none;
+  overflow: scroll;
+  font-size: 0.9rem;
+  background-color: transparent;
+  border: none;
+  color: #ffffffdd;
+  padding: 0.5em 0;
+}
+.card-translate .footer-translate {
+  display: flex;
+  justify-content: space-between;
+}
+.card-translate .footer-options {
+  display: flex;
+  gap: 0.3rem;
+}
+.card-translate .footer-options > button {
+  padding: 0.3rem;
+  width: 1.8rem;
+  border: 1px solid #ffffff44;
+  color: #ffffff44;
+  background-color: transparent;
+  border-radius: 0.5rem;
+}
+.card-translate .btn-send {
+  background-color: #005bc5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  gap: 0.5em;
+  border-radius: 0.5em;
+  padding: 0.2em 1em;
+}
+.card-translate .btn-send span {
+  width: 1.5rem;
+  padding-top: 0.2em;
+}
+
+@media (max-width: 1000px) {
+  main .hero {
+    flex-direction: column;
+  }
+}
