@@ -5,8 +5,13 @@ import { LanguajeSolid } from './icons'
 import { useTranslate } from './hooks/useTranslate'
 
 function App() {
-  const { showText, getTranslate } = useTranslate()
   const [text, setText] = useState('')
+  const [entryLanguage, setEntryLanguage] = useState('')
+  const [targetLanguage, setTargetLanguage] = useState('')
+  const { showText, getTranslate } = useTranslate({
+    sourceLan: entryLanguage,
+    targetLan: targetLanguage,
+  })
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -15,10 +20,15 @@ function App() {
     setText(newText)
   }
   useEffect(() => {
-    console.log(text)
     getTranslate({ text }) // Aquí verás el valor actualizado de 'text'
   }, [getTranslate, text])
 
+  const updateTargetLan = e => {
+    setTargetLanguage(e.target.value)
+  }
+  const updateEntryLan = e => {
+    setEntryLanguage(e.target.value)
+  }
   return (
     <>
       <header>
@@ -32,9 +42,14 @@ function App() {
           <CardTranslate
             isResponse={true}
             submitFunc={handleSubmit}
+            updateLanguaje={updateEntryLan}
             text={'text'}
           />
-          <CardTranslate isResponse={false} showText={showText} />
+          <CardTranslate
+            isResponse={false}
+            showText={showText}
+            updateLanguaje={updateTargetLan}
+          />
         </section>
       </main>
     </>

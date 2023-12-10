@@ -1,7 +1,15 @@
+import { useRef } from 'react'
 import { ClipboardOutline, PaperAirplaneSolid, SpeakerSolid } from '../icons'
+import languajesResponse from '../mocks/languages.json'
 
-export function CardTranslate({ isResponse, submitFunc, text, showText }) {
-  console.log(showText)
+export function CardTranslate({
+  isResponse,
+  submitFunc,
+  text,
+  showText,
+  updateLanguaje,
+}) {
+  const languageList = useRef(languajesResponse.data.languages)
   return (
     <div className={`card-translate ${isResponse ? '' : 'response'}`}>
       <section className="head-translate">
@@ -10,8 +18,18 @@ export function CardTranslate({ isResponse, submitFunc, text, showText }) {
         )}
         <button className="btn-translate active">English</button>
         <button className="btn-translate">Spanish</button>
-        <select className="btn-translate" name="" id="">
-          <option value="Algo">Algo</option>
+        <select
+          className="btn-translate"
+          name="lang"
+          id="lang"
+          onChange={updateLanguaje}>
+          {languageList.current.map((item, index) => {
+            return (
+              <option key={index} value={item.code}>
+                {item.name}
+              </option>
+            )
+          })}
         </select>
       </section>
       <form action="#" onSubmit={submitFunc}>
@@ -20,8 +38,8 @@ export function CardTranslate({ isResponse, submitFunc, text, showText }) {
             name="text"
             id="text"
             placeholder="..."
-            value={!isResponse && showText}
-            readOnly={!isResponse}>
+            {...(showText !== null ? { value: showText } : '')}
+            {...(isResponse ? '' : { readOnly: true })}>
             {isResponse ? text : showText}
           </textarea>
           {isResponse && (
