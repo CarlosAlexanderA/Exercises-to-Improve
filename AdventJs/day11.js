@@ -16,9 +16,7 @@ function getIndexsForPalindrome (word) {
       if (isPalindrome(copyMyWord.join(''))) {
         return [i, j]
       }
-      // console.log(copyMyWord)
     }
-    // console.log('-------------')
   }
 
   return null
